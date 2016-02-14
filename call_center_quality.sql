@@ -319,3 +319,21 @@ ALTER TABLE ft_call_record CHANGE COLUMN ser_exit service_exit_time TIME
 ;
 ALTER TABLE ft_call_record CHANGE COLUMN ser_time service_elapsed_time_seconds INT(11)
 ;
+-- Add title to the d_customer table.
+ALTER TABLE d_customer ADD COLUMN title VARCHAR(4) AFTER customer_id
+;
+-- More or less randomly assign a title to each customer.
+UPDATE d_customer SET title = CASE
+                                   WHEN (d_customer_key % 4) = 0 THEN 'MS'
+                                   WHEN (d_customer_key % 4) = 1 THEN 'MRS'
+                                   WHEN (d_customer_key % 4) = 2 THEN 'MR'
+                                   ELSE null
+                               END
+;
+SELECT customer_id, title, CASE
+                               WHEN title = 'MS'  THEN 'FEMALE' 
+                               WHEN title = 'MRS' THEN 'FEMALE'
+                               WHEN title = 'MR'  THEN 'MALE'
+                               ELSE 'Unknown'
+                          END  AS sex
+FROM d_customer

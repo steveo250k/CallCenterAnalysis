@@ -60,12 +60,12 @@ public class BuildDateDimension {
 			dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + "," + myDateRecord.getDay_Number_In_Month();
 			dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + "," + myDateRecord.getDay_Number_In_Year();
 			
-			if("true".equals(myDateRecord.getIs_Last_Day_In_Week()))
+			if(myDateRecord.getIs_Last_Day_In_Week())
 			    dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + ",1";
 			else
 			    dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + ",0";
 			
-			if("true".equals(myDateRecord.getIs_Last_Day_Of_Month()))
+			if(myDateRecord.getIs_Last_Day_Of_Month())
 			    dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + ",1" ;
 			else
 			    dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + ",0" ;
@@ -79,12 +79,12 @@ public class BuildDateDimension {
 			dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + "," + myDateRecord.getYear_Quarter();
 			dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + "," + myDateRecord.getYear();
 			
-			if("true".equals(myDateRecord.getIs_Holiday()))
+			if(myDateRecord.getIs_Holiday())
 			    dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + ",1";
 			else
 				dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + ",0";
 			
-			if("true".equals(myDateRecord.getIs_Weekday()))
+			if(myDateRecord.getIs_Weekday())
 			    dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + ",1";
 			else
 				dateDimensionRecordAsCSV = dateDimensionRecordAsCSV + ",0";
